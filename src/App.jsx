@@ -42,7 +42,7 @@ function App() {
 
   const total = () =>{
     let sum = 0
-    if (expenseData == []){
+    if (expenseData === Array){
       for(let i = 0; i < expenseData.length; i++){
         sum = sum + Number(expenseData[i].Price)
       }
