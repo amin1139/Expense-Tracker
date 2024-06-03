@@ -1,19 +1,36 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
 
+  const getLocal = () => {
+    let expenseList = localStorage.getItem('expenseList')
+
+    if(expenseList){
+      return JSON.parse(localStorage.getItem('expenseList'))
+    }
+    else{
+      return
+    }
+  }
+
   const [inputValue, setInputValue] = useState('')
-  const [inputPrice, setInputPrice] = useState()
-  const [expenseData, setExpenseData] = useState([])
+  const [inputPrice, setInputPrice] = useState('')
+  const [expenseData, setExpenseData] = useState(getLocal())
+
+  useEffect(() => {
+    localStorage.setItem('expenseList', JSON.stringify(expenseData))
+  },[expenseData])
 
   const addIteam = ()=>{
-    setExpenseData([...expenseData,{
-      value: inputValue,
-      Price: inputPrice
-    }])
-    setInputValue('')
-    setInputPrice('')
+    if(inputValue !== ''){
+      setExpenseData([...expenseData,{
+        value: inputValue,
+        Price: inputPrice
+      }])
+      setInputValue('')
+      setInputPrice('')
+    }
   }
 
   const delIteam = (id)=>{
@@ -39,7 +56,10 @@ function App() {
 
 
       <div className="input">
-        <input type="text" placeholder='Product Name' value={inputValue} onChange={(v) => setInputValue(v.target.value)}/>
+        <input type="text" placeholder='Product Name'
+          value={inputValue} onChange={(v) => 
+          setInputValue(v.target.value)} 
+        />
         <input type="number" placeholder='Price' value={inputPrice} onChange={(v) => setInputPrice(v.target.value)}/>
         <button onClick={addIteam}>Add</button>
       </div>
