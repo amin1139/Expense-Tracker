@@ -16,7 +16,7 @@ function App() {
 
   const [inputValue, setInputValue] = useState('')
   const [inputPrice, setInputPrice] = useState('')
-  const [expenseData, setExpenseData] = useState([])
+  const [expenseData, setExpenseData] = useState(getLocal())
 
   useEffect(() => {
     localStorage.setItem('expenseList', JSON.stringify(expenseData))
