@@ -40,7 +40,7 @@ function App() {
     setExpenseData(updateList)
   }
 
-  const total = ()=>{
+  const total = () =>{
     let sum = 0
     for(let i = 0; i < expenseData.length; i++){
       sum = sum + Number(expenseData[i].Price)
@@ -58,7 +58,7 @@ function App() {
       <div className="input">
         <input type="text" placeholder='Product Name'
           value={inputValue} onChange={(v) => 
-          setInputValue(v.target.value)} 
+          setInputValue(v.target.value)}
         />
         <input type="number" placeholder='Price' value={inputPrice} onChange={(v) => setInputPrice(v.target.value)}/>
         <button onClick={addIteam}>Add</button>
