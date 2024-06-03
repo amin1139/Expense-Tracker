@@ -42,10 +42,15 @@ function App() {
 
   const total = () =>{
     let sum = 0
-    for(let i = 0; i < expenseData.length; i++){
-      sum = sum + Number(expenseData[i].Price)
+    if (expenseData == []){
+      for(let i = 0; i < expenseData.length; i++){
+        sum = sum + Number(expenseData[i].Price)
+      }
+      return sum
     }
-    return sum
+    else{
+      return
+    }
   }
 
   return (
