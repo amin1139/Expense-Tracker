@@ -3,16 +3,16 @@ import './App.css';
 
 function App() {
 
-  const getLocal = () => {
-    let expenseList = localStorage.getItem('expenseList')
+  // const getLocal = () => {
+  //   let expenseList = localStorage.getItem('expenseList')
 
-    if(expenseList){
-      return JSON.parse(localStorage.getItem('expenseList'))
-    }
-    else{
-      return
-    }
-  }
+  //   if(expenseList){
+  //     return JSON.parse(localStorage.getItem('expenseList'))
+  //   }
+  //   else{
+  //     return
+  //   }
+  // }
 
   const [inputValue, setInputValue] = useState('')
   const [inputPrice, setInputPrice] = useState('')
