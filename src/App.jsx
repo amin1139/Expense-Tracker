@@ -3,20 +3,21 @@ import './App.css';
 
 function App() {
 
-  // const getLocal = () => {
-  //   let expenseList = localStorage.getItem('expenseList')
+  const getLocal = () => {
+    let expenseLists = localStorage.getItem('expenseList')
 
-  //   if(expenseList){
-  //     return JSON.parse(localStorage.getItem('expenseList'))
-  //   }
-  //   else{
-  //     return
-  //   }
-  // }
+    if(expenseLists){
+      return JSON.parse(localStorage.getItem('expenseList'))
+    }
+    else{
+      
+    }
+  }
 
+  console.log(getLocal());
   const [inputValue, setInputValue] = useState('')
   const [inputPrice, setInputPrice] = useState('')
-  const [expenseData, setExpenseData] = useState([])
+  const [expenseData, setExpenseData] = useState(getLocal())
 
   useEffect(() => {
     localStorage.setItem('expenseList', JSON.stringify(expenseData))
