@@ -10,7 +10,7 @@ function App() {
       return JSON.parse(localStorage.getItem('expenseList'))
     }
     else{
-      
+      return []
     }
   }
 
